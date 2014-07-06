@@ -1,0 +1,434 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+    <title>1</title>
+    <style>
+     #div
+     {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left:0px;
+        top:0px;
+	
+     }
+     .Mydiv
+     {
+        position: absolute;
+        border-width: 2px;
+        border-style: solid;
+        border-color: #000000;
+        width: 60px;
+        height: 60px;
+        background-color: #00bbaf;
+        text-align: center;
+	color: #000000; //цвет текста в блоке
+	opacity: 10;
+ 
+     }
+     
+          .Mydiv2
+     {
+	background-image:url(images/3.gif);
+
+        position: absolute;
+        border-width: 2px;
+	opacity: 0.05;
+        border-style: solid;
+        border-color: #000000;
+        width: 60px;
+        height: 60px;
+        background-color: #00bbaf;
+        text-align: center;
+     }
+     
+               .Mydiv3
+     {
+        position: absolute;
+        border-width: 4px;
+        border-style: solid;
+        border-color: #000000;
+        width: 60px;
+	padding-top: 10px;
+        height: 60px;
+        background-color: #00bbaf;
+        text-align: center;
+        font-size: 18px;
+	font-size: 18px;
+	font-family: Arial, sans – serif;
+     }
+     
+     
+}
+
+</style>
+    
+    <script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript">jQuery.noConflict();</script>
+<script type="text/javascript" src="Prototype.js"></script>
+    
+    <script type="text/javascript">
+    
+
+	
+        var sr = new Array();
+        var sr1 = new Array();
+        var vod = new Array();
+        var sr2 = 0;
+	var summ = 0;
+        var temp = 0;
+	var temp1 = 0;
+        var sum = 0;
+        var j = 0;
+	var chet = 0;
+        var oshibka = 0;
+	var a = 0;
+	
+
+jQuery(document).ready(function(){
+    
+    
+    
+    jQuery("#as").click(function(event){
+	
+       jQuery("#as").animate({height: "hide"}, 2000);
+     //jQuery("#as").animate({height: "show"}, 1000);
+      event.preventDefault();
+    	    });
+
+	});
+
+        var n=6;
+        var nz=n;
+        n=n*n;
+        var mas=new Array();
+	var mass = new Array();
+        for(var i=0;i<n/2;i++)
+        {
+            var num = (Math.floor(Math.random()*(1-10+0))+10);
+            var num1 = 10-num;
+            mas.push(num);
+	    mass.push(num1);
+        }
+    
+
+        for(var i=0;i<n/2;i++)
+        {
+            mas[i+n/2] = mass[i];
+
+        }
+        
+Array.prototype.shuffle = function( b )
+{
+ var i = this.length, j, t;
+ while( i ) 
+ {
+  j = Math.floor( ( i-- ) * Math.random() );
+  t = b && typeof this[i].shuffle!=='undefined' ? this[i].shuffle() : this[i];
+  this[i] = this[j];
+  this[j] = t;
+ }
+
+ return this;
+};
+
+ mas.shuffle();
+
+	
+a=Math.round(Math.random()*18);
+image = new Array();
+image[0]="url(images/2.gif)";
+image[1]="url(images/3.gif)";
+image[2]="url(images/4.gif)";
+image[3]="url(images/5.gif)";
+image[4]="url(images/5.gif)";
+image[5]="url(images/7.gif)";
+image[6]="url(images/9.gif)";
+image[7]="url(images/9.gif)";
+image[8]="url(images/10.gif)";
+image[9]="url(images/11.gif)";
+image[10]="url(images/12.gif)";
+image[11]="url(images/13.gif)";
+image[12]="url(images/15.gif)";
+image[13]="url(images/16.gif)";
+image[14]="url(images/17.gif)";
+image[15]="url(images/18.gif)";
+image[16]="url(images/20.gif)";
+image[17]="url(images/20.gif)";
+
+
+
+
+        function Prov(e)
+        {
+
+            var div = e.target;
+	    var bbb = 0
+	    bbb = bbb+1;
+	    if(bbb==1)
+	    {
+		document.getElementById("image").style.backgroundImage= image[a];
+	    }
+	    else{}
+	    
+	    
+	      $("prov1").update(" ");
+            sr[j] = div.id;
+	    if(sr[j-1]== sr[j])
+	    {
+		
+	    }
+	    else
+	    {
+            sr1[j] = mas[div.id];
+	    vod[j] = sr1[j];
+	    $("slagaem").update(sr1.join("+"));
+        
+     
+
+             sum = sum + sr1[j];
+	     
+	  $("ravno").update("=");   
+          $("print").update(sum);
+
+           j++;
+  
+
+          if(j==2)
+	  {
+          if(sum==10)
+           {
+	     
+	  //  document.getElementById(sr[0]).style.opacity = 2;
+	
+             for(var c = 0; c<j;c++)
+	     $(sr[c]).remove();
+           
+	   
+	   
+	   
+	
+	     sr1.splice(0);
+	     sr.splice(0);
+	 
+	    chet = chet + 1;
+	      j=0;
+            sum = 0;
+	  
+	   }
+	   else
+	  {
+	    $("prov1").update("эта пара не равняется десяти");
+	    oshibka = oshibka+1;
+	$("prov").update(oshibka);
+	    
+
+	   
+            if(sr[0]%2==0)
+
+              document.getElementById(sr[0]).style.backgroundColor = '#00ffff'; 
+            else if(sr[0]%2!=0)
+
+             document.getElementById(sr[0]).style.backgroundColor = '#00bbaf';
+	       
+	       
+
+            if(sr[1]%2==0)
+
+              document.getElementById(sr[1]).style.backgroundColor = '#00ffff'; 
+            else if(sr[1]%2!=0)
+               document.getElementById(sr[1]).style.backgroundColor = '#00bbaf';
+	       
+	       sum = 0;
+	       j=0;
+	    
+	  }
+	  }
+	  if(chet==18)
+	  document.getElementById("image").style.opacity = 10;
+
+            e.stop();
+	    }
+	  
+
+        }
+	
+	
+        
+
+        function DivAlert(e)
+        {
+
+            var div=e.target;
+            div.setStyle({'backgroundColor': "rgb(173,145,229)"});
+           
+            e.stop();
+
+        }
+        
+	   function An(e)
+        {
+
+            var div=e.target;
+   
+            div.setStyle({'backgroundColor': "rgb(0,0,0)"});
+            e.stop();
+
+        }
+
+
+
+        
+        function Mout(e)
+        {
+            var div=e.target;
+         if(div.id !=sr[0])
+	 {
+	    
+	 }
+	 else
+	 {
+            var $asd=0;
+            $asd=div.id;
+            if($asd%2==0)
+                div.setStyle({'backgroundColor': "rgb(0,255,255)"});
+            else
+                div.setStyle({'backgroundColor': "rgb(0,187,175)"});
+		
+		sr1[j] = mas[div.id];
+		temp = sr1[j];
+		sum = sum - temp;
+		$("print").update(sum);
+		 sr.splice(j-1);
+		 sr1.splice(j-1);
+		// $("prov1").update(sr[j]);
+		 
+               j--;
+	     //   $("prov").update(j);
+	      $("slagaem").update(sr1.join("+"));
+	 }
+            e.stop();
+	    
+        }
+	
+
+
+ 
+      
+        function Load()
+        {
+	    
+	
+           var newC=null;
+           var c=$("HeadC");
+	   
+	  newC=new Element("div", {'class':"Mydiv2", 'id':'image'});
+                newC.setStyle({'left': (320)+"px",
+                                'top': (100)+"px",
+                                'width': 370 + "px",
+                                'height': 370 + "px"});
+                
+                    newC.setStyle({'backgroundColor': "rgb(255,255,255)"});
+		    c.appendChild(newC);
+                newC.update();
+                newC=null;
+		
+            for(var i=0;i<n;i++)
+            {
+                newC=new Element("div", {'class':"Mydiv", 'id':i});
+                newC.setStyle({'left': (320+62*(i % nz))+"px",
+                                'top': 100+62*(Math.floor(i/nz))+"px"});
+                if(i%2==0)
+               newC.setStyle({'backgroundColor': "rgb(0,255,255)"});
+               newC.observe("click", DivAlert);
+	       
+              
+               newC.observe("contextmenu", Mout);
+                newC.observe("click", Prov);
+                c.appendChild(newC);
+                newC.update(mas[i]);
+                newC=null;
+		
+		
+            }
+	    
+  
+	    
+          newC=new Element("div", {'class':"Mydiv3", 'id':'print'});
+                newC.setStyle({'left': (740+62)+"px",
+                                'top': (450+62)+"px",
+                                'width': 100 + "px",
+                                'height': 70 + "px",
+				'font-size':2+"px",
+				'margin':5+"px"});
+                
+                    newC.setStyle({'backgroundColor': "rgb(255,255,255)"});
+              
+                c.appendChild(newC);
+                newC.update();
+                newC=null;
+                
+              newC=new Element("div", {'class':"Mydiv3", 'id':'prov'});
+                newC.setStyle({'left': (550)+"px",
+                                'top': (20)+"px",
+                                'width': 100 + "px",
+                                'height': 40 + "px"});
+                
+                    newC.setStyle({'backgroundColor': "rgb(255,255,255)"});
+              // newC.observe("click", An);
+                c.appendChild(newC);
+                newC.update();
+                newC=null;
+                
+                 newC=new Element("div", {'class':"Mydiv3", 'id':'prov1'});
+                newC.setStyle({'left': (740+62)+"px",
+                                'top': (250)+"px",
+                                'width': 120 + "px",
+                                'height': 70 + "px"});
+                
+                    newC.setStyle({'backgroundColor': "rgb(255,255,255)"});
+              
+                c.appendChild(newC);
+                newC.update();
+                newC=null;
+		
+		newC=new Element("div", {'class':"Mydiv3", 'id':'slagaem'});
+                newC.setStyle({'left': (240+62)+"px",
+                                'top': (450+62)+"px",
+                                'width': 400 + "px",
+                                'height': 70 + "px"});
+                
+                    newC.setStyle({'backgroundColor': "rgb(255,255,255)"});
+              
+                c.appendChild(newC);
+                newC.update();
+                newC=null;
+		
+		newC=new Element("div", {'class':"Mydiv3", 'id':'ravno'});
+                newC.setStyle({'left': (675+62)+"px",
+                                'top': (470+62)+"px",
+                                'width': 30 + "px",
+                                'height': 30 + "px"});
+                
+                    newC.setStyle({'backgroundColor': "rgb(255,255,255)"});
+              
+                c.appendChild(newC);
+                newC.update();
+                newC=null;
+
+
+	
+        }
+    
+
+    </script>
+</head>
+
+<body style="background-color: #003153" onload="Load();" >
+    <div id="HeadC"></div>
+    
+<div id= "as" style= "position: absolute;width: 200px; height:150px; text-align: center; background-color: #808080; border-style: double; border-color: #000000"> Цель - разобрать квадрат,собирая из пар десятки<br><br><br><br> Щёлкни, чтобы скрыть</div>
+    <div style= "position: absolute;left: 370px; top: 25px; font-size: 18px; font-family: Arial, sans – serif;"> Количество ошибок </div>
+<input type='button' value='Начать заново' style="position: absolute; left: 50px; top: 300px; height: 100px; border-width: 6px"  onclick='location.reload(true)' /> 
+</body>
+</html>

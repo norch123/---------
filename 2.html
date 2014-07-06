@@ -1,0 +1,699 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+    <title>1</title>
+    <style>
+     #div
+     {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left:0px;
+        top:0px;
+     }
+     .Mydiv
+     {
+        position: absolute;
+        border-width: 2px;
+        border-style: solid;
+        border-color: #000000;
+        width: 60px;
+        height: 60px;
+        background-color: #00bbaf;
+        text-align: center;
+        font-size: 18px; 
+     }
+     
+          .Mydiv2
+     {
+	background-image:url(images/4.gif);
+        position: absolute;
+        border-width: 2px;
+	opacity: 0.05;
+        border-style: solid;
+        border-color: #000000;
+        width: 60px;
+        height: 60px;
+        background-color: #00bbaf;
+        text-align: center;
+     }
+     
+          .Mydiv3
+     {
+        position: absolute;
+        border-width: 4px;
+        border-style: solid;
+        border-color: #000000;
+        width: 60px;
+	padding-top: 10px;
+        height: 60px;
+        background-color: #00bbaf;
+        text-align: center;
+        font-size: 18px;
+	font-size: 18px;
+	font-family: Arial, sans – serif;
+     }
+     
+    </style>
+    
+   <script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript">jQuery.noConflict();</script>
+<script type="text/javascript" src="Prototype.js"></script>
+    <script type="text/javascript">
+    
+    
+
+       jQuery(document).ready(function(){
+
+    jQuery("#as").click(function(event){
+	
+       jQuery("#as").animate({height: "hide"}, 2000);
+
+      event.preventDefault();
+    	    });
+
+});
+	
+	
+    
+        var sr = new Array();
+        var sr1 = new Array();
+        var vod = new Array();
+        var sr2 = new Array();
+        var sr21 = new Array();
+	var vod2 = new Array();
+	var sum2 = 0;
+	var sr3 = new Array();
+        var sr31 = new Array();
+	var vod3 = new Array();
+	var sum3 = 0;
+        var temp = 0;
+	var temp1 = 0;
+        var sum = 0;
+        var j = 0;
+	var j2 = 0;
+	var j3= 0;
+
+	
+var chet1 = 0;
+var chet2 = 0;
+var chet3 = 0;
+var oshibka = 0;
+	
+        var n=6;
+        var nz=n;
+        n=n*n;
+        var mas=new Array();
+	var mass = new Array();
+	var mas2 = new Array();
+        var mass2 = new Array();
+	var mas3 = new Array();
+        var mass3 = new Array();
+	
+	
+	 
+
+        for(var i=0;i<n/2;i++)
+        {
+            var num = (Math.floor(Math.random()*(1-10+0))+10);
+            var numm = 10-num;
+            mas.push(num);
+	    mass.push(numm);
+	    
+	   var num2 = (Math.floor(Math.random()*(1-20+0))+20);
+            var numm2 = 20-num2;
+            mas2.push(num2);
+	    mass2.push(numm2);
+	     
+	    
+	      var num3 = (Math.floor(Math.random()*(1-30+0))+30);
+            var numm3 = 30-num3;
+            mas3.push(num3);
+	    mass3.push(numm3);
+        }
+
+        for(var i=0;i<n/2;i++)
+        {
+            mas[i+n/2] = mass[i];
+	   mas2[i+n/2] = mass2[i];
+	   mas3[i+n/2] = mass3[i];
+        }
+
+
+Array.prototype.shuffle = function( b )
+{
+ var i = this.length, j, t;
+ while( i ) 
+ {
+  j = Math.floor( ( i-- ) * Math.random() );
+  t = b && typeof this[i].shuffle!=='undefined' ? this[i].shuffle() : this[i];
+  this[i] = this[j];
+  this[j] = t;
+ }
+
+ return this;
+};
+
+mas.shuffle();
+mas2.shuffle();
+mas3.shuffle();
+
+
+a=Math.round(Math.random()*18);
+image = new Array();
+image[0]="url(images/2.gif)";
+image[1]="url(images/3.gif)";
+image[2]="url(images/4.gif)";
+image[3]="url(images/5.gif)";
+image[4]="url(images/5.gif)";
+image[5]="url(images/7.gif)";
+image[6]="url(images/9.gif)";
+image[7]="url(images/9.gif)";
+image[8]="url(images/10.gif)";
+image[9]="url(images/11.gif)";
+image[10]="url(images/12.gif)";
+image[11]="url(images/13.gif)";
+image[12]="url(images/15.gif)";
+image[13]="url(images/16.gif)";
+image[14]="url(images/17.gif)";
+image[15]="url(images/18.gif)";
+image[16]="url(images/20.gif)";
+image[17]="url(images/20.gif)";
+
+
+        function Prov(e)
+        {
+
+            var div = e.target;
+	     var bbb = 0
+	    bbb = bbb+1;
+	    if(bbb==1)
+	    {
+		document.getElementById("image").style.backgroundImage= image[a];
+	    }
+	    else{}
+	    
+	    $("prov1").update(" ");
+            sr[j] = div.id;
+	    if(sr[j-1]== sr[j])
+	    {
+		
+	    }
+	    else
+	    {
+            sr1[j] = mas[div.id];
+	    vod[j] = sr1[j];
+	    $("slagaem").update(sr1.join("+"));
+           // $("prov1").update(sr[j]);
+   
+
+
+             sum = sum + sr1[j];
+	     
+	  $("ravno").update("=");   
+          $("print").update(sum);
+
+           j++;
+
+          if(j==2)
+	  {
+          if(sum==10)
+           {
+             for(var c = 0; c<j;c++)
+	     $(sr[c]).remove();
+           
+	
+	     sr1.splice(0);
+	     sr.splice(0);
+	 
+	    chet1 = chet1+1;
+	      j=0;
+            sum = 0;
+           }
+	   else
+	  {
+	    $("prov1").update("эта пара не равняется десяти");
+	        oshibka = oshibka+1;
+	$("prov").update(oshibka);
+
+              document.getElementById(sr[0]).style.backgroundColor = '#bbbbbb';   
+
+              document.getElementById(sr[1]).style.backgroundColor = '#bbbbbb'; 
+   
+	       sum = 0;
+	       j=0;
+	    
+	    
+	  }
+	  }
+	  
+        
+            e.stop();
+	    }
+	  
+
+        }
+	
+	
+        
+
+        function Prov2(e)
+        {
+
+            var div = e.target;
+	    $("prov1").update(" ");
+	   if(chet1 != 18)
+	    {
+		
+	    }
+	    else{
+            sr2[j2] = div.id;
+	      
+	    if(sr2[j2-1]== sr2[j2])
+	    {
+		
+	    }
+	    else
+	    {
+            sr21[j2] = mas2[div.id-36];
+	    vod2[j2] = sr21[j2];
+	     
+	    $("slagaem").update(sr21.join("+"));
+   
+             sum2 = sum2 + sr21[j2];
+	     
+	  $("ravno").update("=");   
+          $("print").update(sum2);
+	  
+
+	  
+           j2++;
+
+          if(j2==2)
+	  {
+          if(sum2==20)
+           {
+             for(var c = 0; c<j2;c++)
+	     $(sr2[c]).remove();
+           
+          //  $("prov").update(j);
+	
+	     sr21.splice(0);
+	     sr2.splice(0);
+	  chet2 = chet2+1;
+	    
+	      j2=0;
+            sum2 = 0;
+           }
+	   else
+	  {
+	    $("prov1").update("эта пара не равняется 20");
+	        oshibka = oshibka+1;
+	$("prov").update(oshibka);
+	
+              document.getElementById(sr2[0]).style.backgroundColor = '#99958c';   
+
+              document.getElementById(sr2[1]).style.backgroundColor = '#99958c'; 
+	       
+	       sum2 = 0;
+	       j2=0;
+	    
+	 }
+	  }
+	    }
+        
+            e.stop();
+	    }
+	  
+
+        }
+	
+	
+	function Prov3(e)
+        {
+
+            var div = e.target;
+	    $("prov1").update(" ");
+	    if(chet2!=18)
+	    {
+	    
+	    }
+	    else{
+            sr3[j3] = div.id;
+	      
+	    if(sr3[j3-1]== sr3[j3])
+	    {
+		
+	    }
+	    else
+	    {
+            sr31[j3] = mas3[div.id-72];
+	    vod3[j3] = sr31[j3];
+	     
+	    $("slagaem").update(sr31.join("+"));
+   
+             sum3 = sum3 + sr31[j3];
+	     
+	  $("ravno").update("=");   
+          $("print").update(sum3);
+	  
+
+	  
+           j3++;
+
+          if(j3==2)
+	  {
+          if(sum3==30)
+           {
+             for(var c = 0; c<j3;c++)
+	     $(sr3[c]).remove();
+	
+	     sr31.splice(0);
+	     sr3.splice(0);
+	 
+	    chet3 = chet3 + 1;
+	      j3=0;
+            sum3 = 0;
+           }
+	   else
+	  {
+	    $("prov1").update("эта пара не равняется 30");
+	        oshibka = oshibka+1;
+	$("prov").update(oshibka);
+
+              document.getElementById(sr3[0]).style.backgroundColor = '#545454';   
+
+              document.getElementById(sr3[1]).style.backgroundColor = '#545454'; 
+	       
+	       sum3 = 0;
+	       j3=0;
+	       
+	 
+	    
+	  }
+	   if(chet3==18)
+	  document.getElementById("image").style.opacity
+                                 = 10;
+	  }
+	    }
+	  
+        
+            e.stop();
+	    }
+	  
+
+        }
+	
+	
+
+        function DivAlert(e)
+        {
+
+            var div=e.target;
+            div.setStyle({'backgroundColor': "rgb(173,145,229)"});
+           
+            e.stop();
+
+        }
+        
+
+       function DivAlert2(e)
+        {
+           if(chet1!=18)
+	   {
+	    
+	   }
+	   else{
+            var div=e.target;
+            div.setStyle({'backgroundColor': "rgb(173,145,229)"});
+	   }
+            e.stop();
+
+        }
+        
+	   function DivAlert3(e)
+        {
+            if(chet2!=18)
+	   {
+	    
+	   }
+	   else
+	   {
+            var div=e.target;
+            div.setStyle({'backgroundColor': "rgb(173,145,229)"});
+	   }
+            e.stop();
+
+        }
+        
+        
+        function Mout(e)
+        {
+          var div=e.target;
+         if(div.id !=sr[0])
+	 {
+	    
+	 }
+	 else
+	 { 
+                div.setStyle({'backgroundColor': "rgb(187,187,187)"});
+		sr1[j] = mas[div.id];
+		temp = sr1[j];
+		sum = sum - temp;
+		$("print").update(sum);
+		 sr.splice(j-1);
+		 sr1.splice(j-1);
+		// $("prov1").update(sr[j]);
+		 
+               j--;
+	     //   $("prov").update(j);
+	      $("slagaem").update(sr1.join("+"));
+	 }
+            e.stop();
+	    
+        }
+
+      
+           function Mout2(e)
+        {
+           var div=e.target;
+         if(div.id !=sr2[0])
+	 {
+	    
+	 }
+	 else
+	 {
+                div.setStyle({'backgroundColor': "rgb(153,149,140)"});	
+		sr21[j2] = mas2[div.id-n];
+		temp = sr21[j2];
+		sum2 = sum2 - temp;
+		$("print").update(sum2);
+		 sr2.splice(j2-1);
+		 sr21.splice(j2-1);
+		// $("prov1").update(sr[j]);
+		 
+               j2--;
+	     //   $("prov").update(j);
+	      $("slagaem").update(sr21.join("+"));
+	 }
+            e.stop();
+	    
+        }
+        
+	
+	     function Mout3(e)
+        {
+          var div=e.target;
+         if(div.id !=sr3[0])
+	 {
+	    
+	 }
+	 else
+	 {
+                div.setStyle({'backgroundColor': "rgb(80,80,80)"});
+		sr31[j3] = mas3[div.id-n*2];
+		temp = sr31[j3];
+		sum3 = sum3 - temp;
+		$("print").update(sum3);
+		 sr3.splice(j3-1);
+		 sr31.splice(j3-1);
+		// $("prov1").update(sr[j]);
+		 
+               j3--;
+	     //   $("prov").update(j);
+	      $("slagaem").update(sr31.join("+"));
+	 }
+            e.stop();
+	    
+        }
+        
+      
+        function Load()
+        {
+           var newC=null;
+           var c=$("HeadC");
+	   
+	   newC=new Element("div", {'class':"Mydiv2", 'id':'image'});
+                newC.setStyle({'left': (320)+"px",
+                                'top': (100)+"px",
+                                'width': 370 + "px",
+                                'height': 370 + "px"});
+                
+                    newC.setStyle({'backgroundColor': "rgb(255,255,255)"});
+		    c.appendChild(newC);
+                newC.update();
+                newC=null;
+		
+		
+	       for(var k=72;k<108;k++)
+            {
+                newC=new Element("div", {'class':"Mydiv", 'id':k});
+                newC.setStyle({'left': (320+62*((k-72) % nz))+"px",
+                                'top': 100+62*(Math.floor((k-72)/nz))+"px"});
+
+               newC.setStyle({'backgroundColor': "rgb(80,80,80)"});
+	      
+	       
+               newC.observe("click", DivAlert3);
+               newC.observe("contextmenu", Mout3);
+                newC.observe("click", Prov3);
+                c.appendChild(newC);
+              newC.update(mas3[k-72]);
+                newC=null;
+            }
+	    
+	    
+	   for(var j=36;j<72;j++)
+            {
+                newC=new Element("div", {'class':"Mydiv", 'id':j});
+                newC.setStyle({'left': (350+52*((j-36) % nz))+"px",
+                                'top': 130+52*(Math.floor((j-36)/nz))+"px",
+				'width': 50+"px",
+                                'height': 50+"px"});
+
+               newC.setStyle({'backgroundColor': "rgb(153,149,140)"});
+	      
+	       
+               newC.observe("click", DivAlert2);
+               newC.observe("contextmenu", Mout2);
+                newC.observe("click", Prov2);
+                c.appendChild(newC);
+                newC.update(mas2[j-36]);
+                newC=null;
+            }
+
+	   
+           for(var i=0;i<n;i++)
+            {
+                newC=new Element("div", {'class':"Mydiv", 'id':i});
+                newC.setStyle({'left': (380+42*(i % nz))+"px",
+                                'top': 160+42*(Math.floor(i/nz))+"px",
+				'width': 40+"px",
+                                'height': 40+"px"});
+                
+               newC.setStyle({'backgroundColor': "rgb(187,187,187)"});
+               newC.observe("click", DivAlert);
+	       
+              
+               newC.observe("contextmenu", Mout);
+                newC.observe("click", Prov);
+                c.appendChild(newC);
+                newC.update(mas[i]);
+                newC=null;
+            }
+	    
+	    
+	   
+	    
+          newC=new Element("div", {'class':"Mydiv3", 'id':'print'});
+                newC.setStyle({'left': (740+62)+"px",
+                                'top': (450+62)+"px",
+                                'width': 100 + "px",
+                                'height': 70 + "px"});
+                
+                    newC.setStyle({'backgroundColor': "rgb(255,255,255)"});
+              
+                c.appendChild(newC);
+                newC.update();
+                newC=null;
+                
+                newC=new Element("div", {'class':"Mydiv3", 'id':'prov'});
+                newC.setStyle({'left': (550)+"px",
+                                'top': (20)+"px",
+                                'width': 100 + "px",
+                                'height': 40 + "px"});
+                
+                    newC.setStyle({'backgroundColor': "rgb(255,255,255)"});
+              
+                c.appendChild(newC);
+                newC.update();
+                newC=null;
+                
+                 newC=new Element("div", {'class':"Mydiv3", 'id':'prov1'});
+                newC.setStyle({'left': (740+62)+"px",
+                                'top': (250)+"px",
+                                'width': 120 + "px",
+                                'height': 70 + "px"});
+                
+                    newC.setStyle({'backgroundColor': "rgb(255,255,255)"});
+              
+                c.appendChild(newC);
+                newC.update();
+                newC=null;
+		
+		 newC=new Element("div", {'class':"Mydiv3", 'id':'slagaem'});
+                newC.setStyle({'left': (240+62)+"px",
+                                'top': (450+62)+"px",
+                                'width': 400 + "px",
+                                'height': 70 + "px"});
+                
+                    newC.setStyle({'backgroundColor': "rgb(255,255,255)"});
+              
+                c.appendChild(newC);
+                newC.update();
+                newC=null;
+		
+		newC=new Element("div", {'class':"Mydiv3", 'id':'ravno'});
+                newC.setStyle({'left': (675+62)+"px",
+                                'top': (470+62)+"px",
+                                'width': 30 + "px",
+                                'height': 30 + "px"});
+                
+                    newC.setStyle({'backgroundColor': "rgb(255,255,255)"});
+              
+                c.appendChild(newC);
+                newC.update();
+                newC=null;
+  
+            /*newC=new Element("div", {'class':"Mydiv", 'id':'summ'});
+                newC.setStyle({'left': (740+62)+"px",
+                                'top': (100+62)+"px",
+                                'width': 100 + "px",
+                                'height': 70 + "px"});
+                
+                    newC.setStyle({'backgroundColor': "rgb(255,255,255)"});
+              
+                c.appendChild(newC);
+                newC.update();
+                newC=null;*/
+	    
+        }
+    
+    
+  
+    </script>
+</head>
+
+<body style="background-color: #423189" onload="Load();">
+    <div id="HeadC"></div>
+    
+ 
+
+<div id= "as" style= "position: absolute;width: 180px; height:150px; text-align:justify; background-color: #808080; border-style: double; border-color: #000000;font-size: 15px;" > Цель - разобрать квадраты собирая на первом слое из пар десятки, на втором двадцатки, на третьем - тридцатки<br> <br><br><center>Щёлкни, чтобы скрыть</center></div>
+
+
+    <div style= "position: absolute;left: 370px; top: 25px; font-size: 18px; font-family: Arial, sans – serif;"> Количество ошибок </div>
+ <input type='button' value='Начать заново' style="position: absolute;left: 50px; top: 300px; height: 100px; border-width: 6px"  onclick='location.reload(true)' /> 
+
+</body>
+</html>
